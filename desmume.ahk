@@ -24,10 +24,14 @@ WinWaitActive, ahk_class DeSmuME
 CoordMode, Mouse, Screen
 MouseMove, A_ScreenWidth, A_ScreenHeight, 0
 
+;Not working, need to test other send methods later
+F10::Send +{F1} ;save state
+F11::Send {F1} ;load state
+
 ;universal quit
 F12::
 {
-  Process, close, DeSmuME_x64.exe
+  Send {Altdown}{F4}{Altup} ;cleaner shutdown
   WinRestore, XBMC
   ExitApp
 }
