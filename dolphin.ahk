@@ -13,7 +13,7 @@ F11::Send {F1} ;load state
 ;universal quit
 F12::
 {
-  Send {Escape} ;cleaner shutdown
+  Process, Close, dolphin.exe ;doesn't quit fast enough when sent correct close command so xbmc would need to be manually restored
   WinRestore, XBMC
   ExitApp
 }
