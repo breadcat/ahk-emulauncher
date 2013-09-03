@@ -1,6 +1,5 @@
 rem todo:
 rem create efficient way of looping for all commands
-rem batch compile ahk scripts
 
 echo off
 cls
@@ -49,6 +48,11 @@ mklink "%base%\%emu%\launcher.ahk" "%launchers%%emu%.ahk"
 %compiler% /in "%emu%.ahk" /out "%base%\%emu%\launcher.exe"
 
 set emu=project64
+if exist "%base%\%emu%\launcher.*" del "%base%\%emu%\launcher.*"
+mklink "%base%\%emu%\launcher.ahk" "%launchers%%emu%.ahk"
+%compiler% /in "%emu%.ahk" /out "%base%\%emu%\launcher.exe"
+
+set emu=yabause
 if exist "%base%\%emu%\launcher.*" del "%base%\%emu%\launcher.*"
 mklink "%base%\%emu%\launcher.ahk" "%launchers%%emu%.ahk"
 %compiler% /in "%emu%.ahk" /out "%base%\%emu%\launcher.exe"
