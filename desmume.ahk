@@ -20,9 +20,9 @@ WinWaitActive, ahk_class DeSmuME
     Send {altdown}{enter}{altup}
   }
 
-;hide mouse (improve later)
-CoordMode, Mouse, Screen
-MouseMove, A_ScreenWidth, A_ScreenHeight, 0
+;hide mouse
+MouseMove 9999,9999,0
+BlockInput MouseMove
 
 ;Not working, need to test other send methods later
 F10::Send +{F1} ;save state
@@ -32,6 +32,8 @@ F11::Send {F1} ;load state
 F12::
 {
   Send {Altdown}{F4}{Altup} ;cleaner shutdown
+  BlockInput MouseMoveOff
+  MouseMove -A_ScreenWidth/2,-A_ScreenHeight/2, 5, R
   WinRestore, XBMC
   ExitApp
 }
