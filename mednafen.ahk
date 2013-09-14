@@ -5,7 +5,7 @@ SetTitleMatchMode 2
 SetWorkingDir %A_ScriptDir%
 
 ;launch
-Run, mednafen.exe "%1%"
+Run, mednafen.exe -fs 1 "%1%"
 
 ;not working, need to try alternate send modes.
 F10::Send {F5} ;save state
