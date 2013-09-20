@@ -7,9 +7,9 @@ SetWorkingDir %A_ScriptDir%
 ;launch
 Run, mednafen.exe -fs 1 "%1%"
 
-;not working, need to try alternate send modes.
-F10::Send {F5} ;save state
-F11::Send {F7} ;load state
+;save/load state handled via config file
+;command.save_state keyboard 291 ;f10
+;command.load_state keyboard 292 ;f11
 
 ;universal quit
 F12::
