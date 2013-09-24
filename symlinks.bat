@@ -55,6 +55,9 @@ set emu=nulldc
 if exist "%base%\%emu%\launcher.*" del "%base%\%emu%\launcher.*"
 mklink "%base%\%emu%\launcher.ahk" "%launchers%\%emu%.ahk"
 %compiler% /in "%emu%.ahk" /out "%base%\%emu%\launcher.exe"
+rem VMU symlink
+if exist "%base%\%emu%\vmu_data_port01.bin" del "%base%\%emu%\vmu_data_port01.bin"
+mklink "%base%\%emu%\vmu_data_port01.bin" "%savedir%\%emu%\vmu_data_port01.bin"
 
 set emu=pcsx2
 if exist "%base%\%emu%\launcher.*" del "%base%\%emu%\launcher.*"
