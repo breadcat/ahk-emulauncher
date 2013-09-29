@@ -3,14 +3,14 @@ rem Requires Windows 7 mklink utility and a *very* specific folder structure
 rem Will also mercilessly delete existing save data, use with care
 
 rem todo:
-rem dosbox, nulldc, yabause savegame symlinks
+rem dosbox, yabause savegame symlinks
 
 rem Environment
 echo off
 cls
 
 rem Variables
-set base=D:\games\emu
+set base=D:\games\#Emulators
 set launchers=%userprofile%\Dropbox\git\ahk-emulauncher
 set compiler="%programfiles%\AutoHotkey\Compiler\Ahk2Exe.exe"
 set savedir=%userprofile%\Dropbox\saves\emulators
@@ -73,7 +73,7 @@ mklink "%base%\%emu%\launcher.ahk" "%launchers%\%emu%.ahk"
 %compiler% /in "%emu%.ahk" /out "%base%\%emu%\launcher.exe"
 rem DLC symlink
 if exist "%base%\%emu%\memstick\PSP\GAME" rd /s /q "%base%\%emu%\memstick\PSP\GAME%
-mklink /D "%base%\%emu%\memstick\PSP\GAME" "%base%\..\psp\dlc"
+mklink /D "%base%\%emu%\memstick\PSP\GAME" "%base%\..\Sony PlayStation Portable\dlc"
 rem Save game symlink
 if exist "%base%\%emu%\memstick\PSP\SAVEDATA" rd /s /q "%base%\%emu%\memstick\PSP\SAVEDATA"
 mklink /D "%base%\%emu%\memstick\PSP\SAVEDATA" "%savedir%\%emu%"
