@@ -17,7 +17,8 @@ WinWaitActive, ahk_class Project64 2.0
   }
   else
   {
-    Send {altdown}{enter}{altup}
+    sleep, 2000 ;wait 2 seconds
+    Send {esc}
   }
 
 ;universal quit
