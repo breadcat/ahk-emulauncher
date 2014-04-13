@@ -10,7 +10,7 @@ echo off
 cls
 
 rem Variables
-set base=D:\games\#Emulators
+set base=D:\games\!Emulators
 set launchers=%userprofile%\Dropbox\git\ahk-emulauncher
 set compiler="%programfiles%\AutoHotkey\Compiler\Ahk2Exe.exe"
 set savedir=%userprofile%\Dropbox\saves\emulators
@@ -39,6 +39,16 @@ mklink /D "%base%\%emu%\User\GC" "%savedir%\%emu%-gc"
 mklink /D "%base%\%emu%\User\Wii" "%savedir%\%emu%-wii"
 
 set emu=dosbox
+if exist "%base%\%emu%\launcher.*" del "%base%\%emu%\launcher.*"
+mklink "%base%\%emu%\launcher.ahk" "%launchers%\%emu%.ahk"
+%compiler% /in "%emu%.ahk" /out "%base%\%emu%\launcher.exe"
+
+set emu=fba
+if exist "%base%\%emu%\launcher.*" del "%base%\%emu%\launcher.*"
+mklink "%base%\%emu%\launcher.ahk" "%launchers%\%emu%.ahk"
+%compiler% /in "%emu%.ahk" /out "%base%\%emu%\launcher.exe"
+
+set emu=fusion
 if exist "%base%\%emu%\launcher.*" del "%base%\%emu%\launcher.*"
 mklink "%base%\%emu%\launcher.ahk" "%launchers%\%emu%.ahk"
 %compiler% /in "%emu%.ahk" /out "%base%\%emu%\launcher.exe"
